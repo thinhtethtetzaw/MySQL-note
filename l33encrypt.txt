@@ -1,0 +1,97 @@
+=>Encrypt (PW twy ko code twy nk pya dl)
+
+=>SHA1();
+SHA1(string);
+
+*result = 7s7fs97fs9g89sgsgs0gs7gs8
+SELECT SHA1('save myanmar');
+
+*result = NULL
+SELECT SHA1(NULL);
+
+
+
+=>MD5();
+MD5(string);
+
+*result = 7s7fs97fs9g89sgsg8
+SELECT MD5('save myanmar');
+2 khu ka datasize kwr dl MD5 ka po nel dl
+
+*result = NULL
+SELECT MD5(NULL);
+
+______________________________________________
+
+= Exercise
+
+CREATE TABLE accounts(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(100),
+	email VARCHAR(50),
+	password VARCHAR(100),
+	PRIMARY KEY(id) 
+);
+
+DESC accounts;
+
+INSERT INTO accounts(name,email,password)
+VALUES("aung aung","aungaung@gmail.com",12345),
+("maung maung","maungmaung@gmail.com","abcdefg"),
+("kyaw kyaw","kyawkyaw@gmail.com","abc123");
+
+SELECT name,email,
+IF(password = 12345,"Correct Password","Incorrect Password") AS 'verify'
+FROM accounts;
+
+SELECT name,email,password,
+	CASE
+		WHEN password = 12345 THEN 'Correct Password by 12345'
+		WHEN password = 'abcdefg' THEN 'Correct Password by abcdefg' 
+		WHEN password = 'abc123' THEN 'Correct Password by abc123'
+		ELSE 'Incorrect Password'
+	END AS 'Verify Password'
+FROM accounts; 
+
+-------SHA1
+
+INSERT INTO accounts(name,email,password)
+VALUES("aung aung","aungaung@gmail.com",SHA1('12345')),
+("maung maung","maungmaung@gmail.com",SHA1("abcdefg"),
+("kyaw kyaw","kyawkyaw@gmail.com",SHA1("abc123"));
+
+SELECT name,email,password,
+	CASE
+		WHEN password = 12345 THEN 'Correct Password by 12345'
+		WHEN password = 'abcdefg' THEN 'Correct Password by abcdefg' 
+		WHEN password = 'abc123' THEN 'Correct Password by abc123'
+		ELSE 'Incorrect Password'
+	END AS 'Verify Password'
+FROM accounts; 
+
+
+-------MD5
+
+INSERT INTO accounts(name,email,password)
+VALUES("aung aung","aungaung@gmail.com",MD5('12345')),
+("maung maung","maungmaung@gmail.com",MD5("abcdefg"),
+("kyaw kyaw","kyawkyaw@gmail.com",MD5("abc123"));
+
+SELECT name,email,password,
+	CASE
+		WHEN password = 12345 THEN 'Correct Password by 12345'
+		WHEN password = 'abcdefg' THEN 'Correct Password by abcdefg' 
+		WHEN password = 'abc123' THEN 'Correct Password by abc123'
+		ELSE 'Incorrect Password'
+	END AS 'Verify Password'
+FROM accounts; 
+
+--------
+
+HW
+SHA1 -> MD5 -> result
+
+--------
+
+HW
+MD5 -> SHA1 -> result

@@ -1,0 +1,72 @@
+=>Temporary Table
+
+=Syntax
+CREATE TEMPORARY TABLE IF NOT EXISTS tablename(
+	col1 datatype,
+	col2 datatype,
+	col3 datatype,
+	.....
+);
+
+CREATE TEMPORARY TABLE IF NOT EXISTS workers(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(20),
+	age INT,
+	city VARCHAR(50),
+	PRIMARY KEY(id)
+);
+
+DESC workers;
+
+SHOW TABLES; // doesn't shown in table list
+
+INSERT INTO workers(name,age,city)
+VALUES ('aung aung',20,'yangon'),
+('kyaw kyaw',30,'mandalay');
+
+SELECT * FROM workers;
+
+_____________________
+8.01.2022
+
+CREATE TEMPORARY TABLE IF NOT EXISTS workers(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(20),
+	age INT,
+	city VARCHAR(50),
+	PRIMARY KEY(id)
+);
+
+DESC workers;
+
+SHOW TABLES; // doesn't shown in table list
+
+INSERT INTO workers(name,age,city)
+VALUES ('aung aung',20,'yangon'),
+('kyaw kyaw',30,'mandalay');
+
+SELECT * FROM workers;
+
+USE wdp1002;
+SELECT * FROM workers; --(can't find temporary table)
+USE wdf2001;
+SELECT * FROM workers; -- (still have)
+
+\q
+
+USE wdf200;
+SELECT * FROM workers; --(gone bcz quit the database session) 
+
+===create table and then change table name
+
+ALTER TABLE workers
+RENAME TO employeeguys;
+
+=>Drop Temporary Table
+DROP TABLE employeeguys;
+DROP TABLE IF EXISTS employeeguys;
+DROP TEMPORARY TABLE employeeguys;
+DROP TEMPORARY TABLE  IF EXISTS employeeguys;
+
+___________________________________________
+

@@ -1,0 +1,42 @@
+SERVER LOGIN
+
+CMD
+
+username = ssh wdf4139@dltmyanmar.com
+
+username = ssh dlt@dltmyanmar.com
+password = datalandtechnology
+
+PUTTY
+host name = dlt@dltmyanmar.com or 157.230.240.154
+login username = wdf4139
+password = 
+
+
+WINSCP
+
+Host Name = dltmyanmar.com
+username = dlt
+password = datalandtechnology
+
+Host name = 157.230.240.154
+username = dlt 
+password =datalandtechnology
+
+Commend menu > Open Putty
+
+
+DATABASE LOGIN
+ssh dlt@dltmyanmar.com
+
+(method1)
+mysql -uWDF4139 -p
+password = datalandtechnology
+
+(method2)
+mysql -u WDF4139 -p
+exit
+
+______________________________________________________
+
+
